@@ -1,4 +1,4 @@
-# Lab 1 - Thymeleaf Demo
+# Lab 2 - Thymeleaf - Post Mapping Demo
 
 ## Course Information
 - **Course:** CPAN 228
