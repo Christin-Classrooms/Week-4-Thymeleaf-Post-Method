@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Create Fighter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="h3 mb-4">Create Fighter</h1>
+
+          <form th:action="@{/fighters}" th:object="${fighter}" method="post" class="needs-validation">
+
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input class="form-control" type="text" th:field="*{name}"
+                     th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Health</label>
+              <input class="form-control" type="number" th:field="*{health}"
+                     th:classappend="${#fields.hasErrors('health')} ? 'is-invalid' : ''">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('health')}" th:errors="*{health}"></div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Damage</label>
+              <input class="form-control" type="number" th:field="*{damage}"
+                     th:classappend="${#fields.hasErrors('damage')} ? 'is-invalid' : ''">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('damage')}" th:errors="*{damage}"></div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Resistance</label>
+              <input class="form-control" type="number" step="0.1" th:field="*{resistance}"
+                     th:classappend="${#fields.hasErrors('resistance')} ? 'is-invalid' : ''">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('resistance')}" th:errors="*{resistance}"></div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary" type="submit">Create Fighter</button>
+              <a class="btn btn-outline-secondary" th:href="@{/fighters}">View Fighters</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <p class="text-muted small mt-3 mb-0">
+        Rules: Health 1001–1499, Damage &lt; 100, Resistance 0–10.
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
