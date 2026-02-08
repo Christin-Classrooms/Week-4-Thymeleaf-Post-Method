@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About Page</title>
+    <div th:insert="fragments/base :: assetsHead"></div>
+</head>
+<body>
+
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<div class="app-container text-center">
+    <div class="players-card">
+        <h1 th:text="${message}">Tekken Reborn</h1>
+        <p class="text-muted">Do you love street fighter or smash bros? then this is the game for 🫵<br>
+            In Tekken Reborn you will be able to pick your favorite characters to go against <br> each other till only one is claimed the victor! (may the odds ever be in your favor)
+        </p>
+        <p><i> Hope you have fun fighting it out with friends in this game to your heart's content</i></p>
+        <img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnhjcHE5MWcxaGlycHdlYmFieDQ1cGhnZmhkdHN6cDd4YXZxeWRyNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1eEAvwGxh6XLTdtHN3/giphy.gif" alt="Description of the animated GIF">
+
+
+    </div>
+</div>
+
+<div th:insert="fragments/base :: assetsScripts"></div>
+</body>
+</html>
