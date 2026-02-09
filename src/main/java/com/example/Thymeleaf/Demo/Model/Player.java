@@ -20,7 +20,4 @@ public class Player {
     @Email(message = "invalid email")
     private String email;
 
-
-
-
 }

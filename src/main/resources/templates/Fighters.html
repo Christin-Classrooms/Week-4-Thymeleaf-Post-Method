@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Players</title>
+    <title>Fighters</title>
     <div th:insert="fragments/base :: assetsHead"></div>
 </head>
 
@@ -12,30 +12,29 @@
 
     <div class="app-container">
         <div class="app-header text-center">
-            <h2>Players</h2>
-            <p class="text-muted">Showing <span th:text="${total}">0</span> players</p>
+            <h2>Fighters</h2>
+            <p class="text-muted">Showing <span th:text="${total}">0</span> fighters</p>
         </div>
 
-        <div class="players-card">
+        <div class="fighters-card">
             <div class="table-responsive">
                 <table class="table align-middle">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Health</th>
+                            <th scope="col">Damage</th>
+                            <th scope="col">Resistance</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="player : ${players}">
-                            <th scope="row" th:text="${player.id}">1</th>
-                            <td th:text="${player.name}">Name</td>
-                            <td th:text="${player.email}">email@example.com</td>
-                            <td>
-                                <span th:if="${player.id == 1}" class="status-badge-online">Online</span>
-                                <span th:unless="${player.id == 1}" class="status-badge-offline">Offline</span>
-                            </td>
+                        <tr th:each="fighter : ${fighters}">
+                            <th scope="row" th:text="${fighter.id}">1</th>
+                            <td th:text="${fighter.name}">Fighter Name</td>
+                            <td th:text="${fighter.health}">1200</td>
+                            <td th:text="${fighter.damage}">50.0</td>
+                            <td th:text="${fighter.resistance}">5.0</td>
                         </tr>
                     </tbody>
                 </table>
