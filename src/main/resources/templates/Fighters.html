@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fighters</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+
+<h1>Registered Fighters</h1>
+
+<p><a th:href="@{/fighters/create}">Create New Fighter</a></p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Health</th>
+        <th>Damage</th>
+        <th>Resistance</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:if="${#lists.isEmpty(fighters)}">
+        <td colspan="4">No fighters are registered yet.</td>
+    </tr>
+
+    <tr th:each="f : ${fighters}">
+        <td th:text="${f.name}"></td>
+        <td th:text="${f.health}"></td>
+        <td th:text="${f.damage}"></td>
+        <td th:text="${f.resistance}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
