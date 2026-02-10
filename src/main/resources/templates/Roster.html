@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Roster</title>
+    <div th:insert="fragments/base :: assetsHead"></div>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="app-container">
+    <div class="app-header text-center">
+        <h1 style="font-weight: bold;">Roster</h1>
+    </div>
+
+    <div class="roster-card">
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                <tr>
+                    <th scope="col" class="w-25 text-center">Name</th>
+                    <th scope="col" class="w-25 text-center">Health</th>
+                    <th scope="col" class="w-25 text-center">Damage</th>
+                    <th scope="col" class="w-25 text-center">Resistance</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="fighter : ${fighters}">
+                    <td class="fw-bold text-center" th:text="${fighter.name}"></td>
+                    <td th:text="${fighter.health}" class="text-center"></td>
+                    <td th:text="${fighter.damage}" class="text-center"></td>
+                    <td th:text="${fighter.resistance}" class="text-center"></td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(fighters)}">
+                    <td colspan="4" class="text-center text-muted py-4">No fighters in the pool.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+        <a th:href="@{/fighter-creation}" class="btn btn-primary">Create a Fighter</a>
+    </div>
+</div>
+
+<div th:insert="fragments/base :: assetsScripts"></div>
+</body>
+</html>
