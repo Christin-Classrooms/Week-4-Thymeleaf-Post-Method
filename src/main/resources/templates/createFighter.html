@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Fighter</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<h1>Create Fighter</h1>
+
+<form th:action="@{/fighters/create}" th:object="${fighter}" method="post">
+
+    <!-- Name -->
+    <label>Name:</label>
+    <input type="text" th:field="*{name}">
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
+    <!-- Health -->
+    <label>Health:</label>
+    <input type="number" th:field="*{health}">
+    <p th:if="${#fields.hasErrors('health')}" th:errors="*{health}"></p>
+
+    <!-- Damage -->
+    <label>Damage:</label>
+    <input type="number" th:field="*{damage}">
+    <p th:if="${#fields.hasErrors('damage')}" th:errors="*{damage}"></p>
+
+    <!-- Resistance -->
+    <label>Resistance:</label>
+    <input type="number" step="0.1" th:field="*{resistance}">
+    <p th:if="${#fields.hasErrors('resistance')}" th:errors="*{resistance}"></p>
+
+    <button type="submit">Create Fighter</button>
+</form>
+
+<p><a th:href="@{/fighters/list}">View all fighters</a></p>
+
+</body>
+</html>
