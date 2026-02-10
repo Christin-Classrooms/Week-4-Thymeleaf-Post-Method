@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Fighter</title>
+    <div th:insert="fragments/base :: assetsHead"></div>
+</head>
+<body>
+
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="app-container">
+    <div class="app-header text-center">
+        <h2>Register Fighter</h2>
+        <p class="text-muted">Fill in all fields to add a new fighter</p>
+    </div>
+
+    <div class="fighter-form card p-4 mx-auto" style="max-width: 500px;">
+        <form th:action="@{/createfighter}" th:object="${fighter}" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Name:</label>
+                <input type="text" th:field="*{name}" class="form-control">
+                <div class="text-danger" th:errors="*{name}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Health:</label>
+                <input type="number" th:field="*{health}" class="form-control">
+                <div class="text-danger" th:errors="*{health}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Damage:</label>
+                <input type="number" step="0.1" th:field="*{damage}" class="form-control">
+                <div class="text-danger" th:errors="*{damage}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Resistance:</label>
+                <input type="number" step="0.1" th:field="*{resistance}" class="form-control">
+                <div class="text-danger" th:errors="*{resistance}"></div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Create Fighter</button>
+                <a th:href="@{/fighters}" class="btn btn-secondary ms-2">View All Fighters</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div th:insert="fragments/base :: assetsScripts"></div>
+
+</body>
+</html>
+
