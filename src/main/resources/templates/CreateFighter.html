@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:insert="fragments/base :: assetsHead"></div>
+    <body>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+
+    <div class="app-container">
+        <div class="app-header">
+            <h2 class="mb-4">Please Register Fighters</h2>
+        </div>
+
+        <div class="players-card">
+            <form th:action="@{/create-fighter}" th:object="${fighter}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input class="form-control" th:field="*{name}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="health" class="form-label">Health</label>
+                    <input type="number" class="form-control" id="health" th:field="*{health}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="damage" class="form-label">Damage</label>
+                    <input type="number" step="0.01" class="form-control" th:field="*{damage}">
+                </div>
+                <div class="mb-3">
+                    <label for="resistance" class="form-label">Resistance</label>
+                    <input type="number" step="0.01" class="form-control" th:field="*{resistance}">
+                </div>
+                <button type="submit" class="btn btn-primary btn-long">Create Fighter</button>
+            </form>
+        </div>
+        </div>
+<div th:insert="fragments/base :: assetsScripts"></div>
+</body>
+</html>
