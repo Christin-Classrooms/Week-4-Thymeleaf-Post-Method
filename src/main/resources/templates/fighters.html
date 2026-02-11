@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fighter Pool</title>
+    <style>
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 6px; }
+    </style>
+</head>
+<body>
+
+<h1>Fighter Pool</h1>
+
+<div th:if="${successMessage}" th:text="${successMessage}"
+     style="padding:10px; border:1px solid black; margin-bottom:10px;">
+</div>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Health</th>
+        <th>Damage</th>
+        <th>Resistance</th>
+    </tr>
+
+    <tr th:each="f : ${fighters}">
+        <td th:text="${f.name}"></td>
+        <td th:text="${f.health}"></td>
+        <td th:text="${f.damage}"></td>
+        <td th:text="${f.resistance}"></td>
+    </tr>
+</table>
+
+<br>
+
+<a th:href="@{/fighters/create}">Add New Fighter</a>
+
+</body>
+</html>
