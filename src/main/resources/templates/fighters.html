@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Fighters</h1>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Health</th>
+        <th>Damage</th>
+        <th>Resistance</th>
+    </tr>
+
+    <tr th:each="f : ${fighters}">
+        <td th:text="${f.name}"></td>
+        <td th:text="${f.health}"></td>
+        <td th:text="${f.damage}"></td>
+        <td th:text="${f.resistance}"></td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/fighters/create}">Add Fighter</a>
+
+</body>
+</html>

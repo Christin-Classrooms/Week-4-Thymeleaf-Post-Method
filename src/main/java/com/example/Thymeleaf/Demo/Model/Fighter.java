@@ -1,19 +1,39 @@
 package com.example.Thymeleaf.Demo.Model;
 
-import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+import jakarta.validation.constraints.*;
+
 public class Fighter {
 
-    private int id;
+    @NotBlank(message = "Name is required")
     private String name;
+
+    @NotNull(message = "Health is required")
+    @Min(value = 1001, message = "Health must be more than 1000")
+    @Max(value = 1499, message = "Health must be less than 1500")
     private Integer health;
-    private Double damage;
+
+    @NotNull(message = "Damage is required")
+    @Max(value = 99, message = "Damage must be less than 100")
+    private Integer damage;
+
+    @NotNull(message = "Resistance is required")
+    @DecimalMin(value = "0.0", message = "Resistance must be between 0 and 10")
+    @DecimalMax(value = "10.0", message = "Resistance must be between 0 and 10")
     private Double resistance;
 
+    public Fighter() {}
+
+    // getters & setters
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public Integer getHealth() { return health; }
+    public void setHealth(Integer health) { this.health = health; }
+
+    public Integer getDamage() { return damage; }
+    public void setDamage(Integer damage) { this.damage = damage; }
+
+    public Double getResistance() { return resistance; }
+    public void setResistance(Double resistance) { this.resistance = resistance; }
 }
