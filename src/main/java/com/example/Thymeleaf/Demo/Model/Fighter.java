@@ -1,6 +1,9 @@
 package com.example.Thymeleaf.Demo.Model;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,9 +14,22 @@ import lombok.NoArgsConstructor;
 public class Fighter {
 
     private int id;
+
+    @NotEmpty(message = "Name is required")
     private String name;
+
+    @NotNull(message = "Health is required")
+    @Min(value = 1001, message = "Health must be more than 1000")
+    @Max(value = 1499, message = "Health must be less than 1500")
     private Integer health;
-    private Double damage;
+
+    @NotNull(message = "Damage is required")
+    @Max(value = 99, message = "Damage must be less than 100")
+    private Integer damage;
+
+    @NotNull(message = "Resistance is required")
+    @Min(value = 0, message = "Resistance must be at least 0")
+    @Max(value = 10, message = "Resistance must be at most 10")
     private Double resistance;
 
 }
