@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fighters</title>
+    <div th:insert="fragments/base :: assetsHead"></div>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+    <div class="app-container">
+        <div class="app-header text-center">
+            <h2>Fighters</h2>
+            <p class="text-muted" th:if="${fighters}">Showing <span th:text="${fighters.size()}">0</span> fighters</p>
+            <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+        </div>
+
+        <div class="players-card">
+            <div class="mb-3">
+                <a th:href="@{/createFighter}" class="btn btn-success">+ Create New Fighter</a>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Health</th>
+                            <th scope="col">Damage</th>
+                            <th scope="col">Resistance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="fighter, iter : ${fighters}">
+                            <th scope="row" th:text="${iter.index + 1}"></th>
+                            <td th:text="${fighter.name}">Name</td>
+                            <td th:text="${fighter.health}">Health</td>
+                            <td th:text="${fighter.damage}">Damage</td>
+                            <td th:text="${fighter.resistance}">Resistance</td>
+                        </tr>
+                        <tr th:if="${fighters == null or fighters.isEmpty()}">
+                            <td colspan="5" class="text-center text-muted py-4">No fighters registered yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
