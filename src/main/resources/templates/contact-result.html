@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Contact Result</title>
+</head>
+<body>
+
+<h1>Submitted!</h1>
+
+<p><b>Name:</b> <span th:text="${submittedContact.name}"></span></p>
+<p><b>Email:</b> <span th:text="${submittedContact.email}"></span></p>
+
+<a th:href="@{/contact}">Back to form</a>
+
+</body>
+</html>
