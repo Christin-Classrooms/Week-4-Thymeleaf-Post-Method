@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fighter List</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- header here -->
+        <div class="app-header">
+            <h1>Tekken Reborn</h1>
+            <span class="navbar-brand">Fighter Roster</span>
+        </div>
+
+        <!-- main fighters card -->
+        <!-- im using the css that was used for the players card  -->
+        <div class="players-card">
+            <h2>Registered Fighters</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Health</th>
+                        <th>Damage</th>
+                        <th>Resistance</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="fighter : ${fighters}">
+                        <td th:text="${fighter.id}">1</td>
+                        <td th:text="${fighter.name}">Fighter Name</td>
+                        <td th:text="${fighter.health}">1200</td>
+                        <td th:text="${fighter.damage}">85.5</td>
+                        <td th:text="${fighter.resistance}">7.5</td>
+                        <td>
+                            <span class="status-badge-online">Active</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a th:href="@{/fighters/register}">Register New Fighter</a>
+            <a th:href="@{/}">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
