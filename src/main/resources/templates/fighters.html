@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+  <title> Fighter Pool </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" th:href="@{/styles.css}">
+  <link rel="stylesheet" th:href="@{/lab2.css}">
+</head>
+<body>
+    <nav class="nav">
+  <a th:href="@{/fighters}">Fighters</a>
+  <a th:href="@{/fighters/create}">Create Fighter</a>
+</nav>
+
+<div class="container">
+  <h1>Fighter Pool</h1>
+
+  <table class="table card">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Health</th>
+      <th>Damage</th>
+      <th>Resistance</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="f : ${fighters}">
+      <td th:text="${f.name}"></td>
+      <td th:text="${f.health}"></td>
+      <td th:text="${f.damage}"></td>
+      <td th:text="${f.resistance}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 15px;">
+    <a th:href="@{/fighters/create}">+ Register another fighter</a>
+  </p>
+</div>
+</body>
+</html>

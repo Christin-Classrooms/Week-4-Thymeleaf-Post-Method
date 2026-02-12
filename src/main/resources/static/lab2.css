@@ -1,0 +1,149 @@
+/*Lab 2 styling 
+/* Force Orbitron on Lab 2 pages (override project defaults) */
+body, h1, h2, p, label, input, button, table, th, td, a {
+  font-family: "Orbitron", "Segoe UI", Arial, sans-serif !important;
+}
+
+
+/* i Used the Same background as Lab 1 :) */
+body {
+  background: url("/gaming.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+/* ===== Neon Gamer Navbar ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 20px;
+  margin: 0 auto 24px;
+  max-width: 1100px;
+
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 75, 92, 0.35);
+  box-shadow: 0 0 18px rgba(255, 75, 92, 0.25);
+}
+
+.nav-brand {
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 75, 92, 0.55);
+}
+
+.nav-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  color: #ff4b5c;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 75, 92, 0.25);
+  transition: 0.25s ease;
+}
+
+.nav a:hover {
+  color: #ffffff;
+  background: rgba(255, 75, 92, 0.22);
+  border-color: rgba(255, 75, 92, 0.65);
+  box-shadow: 0 0 14px rgba(255, 75, 92, 0.55);
+  transform: translateY(-1px);
+}
+
+/* Optional: make navbar sit nicely on small screens */
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    width: 100%;
+  }
+  .nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Container glow effect */
+.container {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 75, 92, 0.4);
+  margin-top: 40px;
+}
+
+/* Title glow */
+h1 {
+  text-align: center;
+  color: #ff4b5c;
+  text-shadow: 0 0 12px rgba(255, 75, 92, 0.8);
+  margin-bottom: 25px;
+}
+
+/* Error styling */
+.error {
+  margin: 6px 0 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 80, 80, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.35);
+  font-size: 0.95rem;
+}
+
+/* Button styling */
+.btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4b5c;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff1f3a;
+  box-shadow: 0 0 12px rgba(255, 75, 92, 0.7);
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #ff4b5c;
+  color: white;
+  padding: 12px;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
