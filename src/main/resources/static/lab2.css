@@ -1,0 +1,78 @@
+/*Lab 2 styling 
+/* Force Orbitron on Lab 2 pages (override project defaults) */
+body, h1, h2, p, label, input, button, table, th, td, a {
+  font-family: "Orbitron", "Segoe UI", Arial, sans-serif !important;
+}
+
+
+/* i Used the Same background as Lab 1 :) */
+body {
+  background: url("/gaming.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+/* Container glow effect */
+.container {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 75, 92, 0.4);
+  margin-top: 40px;
+}
+
+/* Title glow */
+h1 {
+  text-align: center;
+  color: #ff4b5c;
+  text-shadow: 0 0 12px rgba(255, 75, 92, 0.8);
+  margin-bottom: 25px;
+}
+
+/* Error styling */
+.error {
+  margin: 6px 0 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 80, 80, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.35);
+  font-size: 0.95rem;
+}
+
+/* Button styling */
+.btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4b5c;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff1f3a;
+  box-shadow: 0 0 12px rgba(255, 75, 92, 0.7);
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #ff4b5c;
+  color: white;
+  padding: 12px;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
