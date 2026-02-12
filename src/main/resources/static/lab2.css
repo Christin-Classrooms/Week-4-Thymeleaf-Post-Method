@@ -11,6 +11,77 @@ body {
   background-size: cover;
   color: #ffffff;
 }
+/* ===== Neon Gamer Navbar ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 20px;
+  margin: 0 auto 24px;
+  max-width: 1100px;
+
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 75, 92, 0.35);
+  box-shadow: 0 0 18px rgba(255, 75, 92, 0.25);
+}
+
+.nav-brand {
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 75, 92, 0.55);
+}
+
+.nav-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  color: #ff4b5c;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 75, 92, 0.25);
+  transition: 0.25s ease;
+}
+
+.nav a:hover {
+  color: #ffffff;
+  background: rgba(255, 75, 92, 0.22);
+  border-color: rgba(255, 75, 92, 0.65);
+  box-shadow: 0 0 14px rgba(255, 75, 92, 0.55);
+  transform: translateY(-1px);
+}
+
+/* Optional: make navbar sit nicely on small screens */
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    width: 100%;
+  }
+  .nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
 
 /* Container glow effect */
 .container {
