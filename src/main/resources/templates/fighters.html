@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="fragments/base :: assetsHead"></div>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="app-container">
+    <div class="app-header">
+        <h2 class="mb-4">Tekken Reborn - Fighter Registry</h2>
+        <p class="subtitle" th:text="'Total Fighters: ' + ${total}">Total Fighters</p>
+    </div>
+
+    <!-- Create Fighter Button -->
+    <div class="mb-4">
+        <a th:href="@{/create-fighter}" class="btn btn-success btn-lg">+ Register New Fighter</a>
+    </div>
+
+    <!-- Show message if the fighters list is empty -->
+    <!-- Uses th:if with #lists.isEmpty(fighters) -->
+    <div th:if="${#lists.isEmpty(fighters)}" class="alert alert-info" role="alert">
+        <h4 class="alert-heading">No Fighters Yet!</h4>
+        <p>There are no fighters registered. <a th:href="@{/create-fighter}" class="alert-link">Create one now</a></p>
+    </div>
+
+    <!-- Show fighters table only if the fighters list is not empty -->
+    <!-- Uses th:unless as the opposite of th:if -->
+    <div th:unless="${#lists.isEmpty(fighters)}">
+        <div class="table-responsive players-card">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Health</th>
+                        <th scope="col">Damage</th>
+                        <th scope="col">Resistance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through each fighter in the fighters list using th:each -->
+                    <tr th:each="fighter, stat : ${fighters}">
+                        <td th:text="${stat.count}">1</td>
+                        
+                        <!-- Fighter Name -->
+                        <td th:text="${fighter.name}">Fighter Name</td>
+                        
+                        <!-- Apply green or warning text color based on fighter health value -->
+                        <td 
+                            th:text="${fighter.health}"
+                            th:classappend="${fighter.health > 1250 ? 'text-success' : 'text-warning'}"
+                        >Health</td>
+                        
+                        <!-- Apply danger or info text color based on fighter damage value -->
+                        <td 
+                            th:text="${#numbers.formatDecimal(fighter.damage, 1, 2)}"
+                            th:classappend="${fighter.damage > 50 ? 'text-danger' : 'text-info'}"
+                        >Damage</td>
+                        
+                        <!-- Format resistance value to always show two decimal places -->
+                        <td th:text="${#numbers.formatDecimal(fighter.resistance, 1, 2)}">Resistance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/base :: assetsScripts"></div>
+</body>
+</html>
