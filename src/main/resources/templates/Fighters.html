@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fighters </title>
+    <div th:insert="fragments/base :: assetsHead"></div>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<div class="app-container">
+    <div class =" reg-btn"> 
+    <a th:href="@{/Register_Fighters}" class ="reg-link">Register New Fighter</a>
+    </div>
+    <div class="players-card">
+        <div class="table-responsive">  
+            <table class="table align-middle">
+                    <thead>
+                        <tr>
+                        <th>Name</th>
+                        <th>Health</th>
+                        <th>Damage</th>
+                        <th>Resistance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${fighters.size() == 0}">
+                        <td colspan="4">No fighters registered yet.</td>
+                        </tr>
+
+                        <tr th:each="f : ${fighters}">
+                        <td th:text="${f.name}"></td>
+                        <td th:text="${f.health}"></td>
+                        <td th:text="${f.damage}"></td>
+                    <td th:text="${f.resistance}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+<div th:insert="fragments/base :: assetsScripts"></div>
+</body>
+</html>
