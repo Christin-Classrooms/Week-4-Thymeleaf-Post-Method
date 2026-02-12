@@ -27,7 +27,7 @@ public class PlayerService {
     }
 
 
-     public void addPlayer(Player player) {
+    public void addPlayer(Player player) {
         player.setId(nextId++);
         players.add(player);
     }

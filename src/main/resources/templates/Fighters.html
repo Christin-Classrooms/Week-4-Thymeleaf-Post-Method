@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fighters List</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h2>Registered Fighters</h2>
+            <p>Total Fighters: <span th:text="${total}">0</span></p>
+
+            <table class="table table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Health</th>
+                        <th>Damage</th>
+                        <th>Resistance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="fighter : ${fighters}">
+                        <td th:text="${fighter.id}">1</td>
+                        <td th:text="${fighter.name}">Ryu</td>
+                        <td th:text="${fighter.health}">1200</td>
+                        <td th:text="${fighter.damage}">85.5</td>
+                        <td th:text="${fighter.resistance}">4.5</td>
+                    </tr>
+                    <tr th:if="${fighters.empty}">
+                        <td colspan="5" class="text-center">
+                            No fighters registered yet
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="/create-fighter" class="btn btn-primary"
+                >Register New Fighter</a
+            >
+            <a href="/create-player" class="btn btn-info">Register Player</a>
+        </div>
+    </body>
+</html>
