@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Create Fighter</title>
+        <link rel="stylesheet" th:href="@{/styles.css}">
+    </head>
+
+    <body>
+        <h1>Create Fighter</h1>
+        <form th:action="@{/createfighter}" th:object="${fighter}" method="post">
+            <div>
+                <label>Name:</label>
+                <input type="text" th:field="*{name}">
+                <p class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+            </div>
+
+            <div>
+                <label>Health:</label>
+                <input type="number" th:field="*{health}">
+                <p class="error" th:if="${#fields.hasErrors('health')}" th:errors="*{health}"></p>
+                <small>Must be more than 1000 and less than 1500</small>
+            </div>
+
+            <div>
+                <label>Damage:</label>
+                <input type="number" th:field="*{damage}">
+                <p class="error" th:if="${#fields.hasErrors('damage')}" th:errors="*{damage}"></p>
+                <small>Must be less than 100</small>
+            </div>
+
+            <div>
+                <label>Resistance:</label>
+                <input type="number" step="0.1" th:field="*{resistance}">
+                <p class="error" th:if="${#fields.hasErrors('resistance')}" th:errors="*{resistance}"></p>
+                <small>Must be between 0 and 10</small>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p><a th:href="@{/fighters}">View Fighters</a></p>
+
+    </body>
+</html>
