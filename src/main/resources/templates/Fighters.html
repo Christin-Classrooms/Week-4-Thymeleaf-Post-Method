@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="fragments/base :: assetsHead"></div>
+
+<body>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+
+    <div class="app-container">
+        <div class="app-header">
+            <h2 class="mb-4">Fighter Pool</h2>
+            <p th:text="'Showing ' + ${fighters.size()} + ' fighters'"></p>
+        </div>
+
+        <div class="players-card">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Health</th>
+                        <th scope="col">Damage</th>
+                        <th scope="col">Resistance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="f, iterStat : ${fighters}">
+                        <th scope="row" th:text="${iterStat.count}">1</th>
+                        <td th:text="${f.name}"></td>
+                        <td th:text="${f.health}"></td>
+                        <td th:text="${f.damage}"></td>
+                        <td th:text="${f.resistance}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:insert="fragments/base :: assetsScripts"></div>
+</body>
+
+</html>
