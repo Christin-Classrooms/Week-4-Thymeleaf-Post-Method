@@ -7,28 +7,28 @@ Fighter pool is a list of fighters similar to CreatePlayerController.java
 Requirements
 
 Controller Implementation
-[ ]	Implement `createFighter()` method with POST signature
-    [ ]	Handle form submissions from the fighter registration form
-    [ ]	Add submitted fighters to the fighter pool (list)
-    [ ]	Redirect on successful submission
+[X]	Implement `createFighter()` method with POST signature
+    [X]	Handle form submissions from the fighter registration form
+    [X]	Add submitted fighters to the fighter pool (list)
+    [X]	Redirect on successful submission
  
 Validation Requirements
-[ ]	All fields required: name, health, damage, resistance
-[ ]	Health validation: Must be more than 1000 but less than 1500
-[ ]	Damage validation: Must be less than 100
-[ ]	Resistance validation: Must be from 0 to 10 and must be a double value
+[X]	All fields required: name, health, damage, resistance
+[X]	Health validation: Must be more than 1000 but less than 1500
+[X]	Damage validation: Must be less than 100
+[X]	Resistance validation: Must be from 0 to 10 and must be a double value
  
 Form & Display
-[ ]	CreateFighter Template: 
-    [ ]	Create a registration form that guides users to fix validation issues
-    [ ]	Display validation error messages on the form
+[X]	CreateFighter Template: 
+    [X]	Create a registration form that guides users to fix validation issues
+    [X]	Display validation error messages on the form
 
-[ ]	FighterController:
-    [ ]	Create a new FighterController that renders fighters in a table
-    [ ]	Display all registered fighters similar to what we did with Players
-    [ ]	Table should show: name, health, damage, resistance
+[X]	FighterController:
+    [X]	Create a new FighterController that renders fighters in a table
+    [X]	Display all registered fighters similar to what we did with Players
+    [X]	Table should show: name, health, damage, resistance
  
 Testing
-[ ]	Ensure validation is properly working on form submission
-[ ]	Test all validation scenarios
-[ ]	Verify fighters are added to the list successfully
+[X]	Ensure validation is properly working on form submission
+[X]	Test all validation scenarios
+[X]	Verify fighters are added to the list successfully
